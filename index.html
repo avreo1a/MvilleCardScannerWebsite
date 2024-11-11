@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamezone Card Converter</title>
+    <style>
+
+        body {
+            background-color: #9b1d40;
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .converter-container {
+            background-color: #581125;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .converter-container h1 {
+            font-size: 1.8em;
+            color: #f8f8f8;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .converter-container textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            resize: none;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #3b3b50;
+            outline: none;
+        }
+        
+        .converter-container button {
+            padding: 12px 24px;
+            margin: 20px 0;
+            font-size: 1em;
+            font-weight: bold;
+            color: #1e1e2f;
+            background-color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .converter-container button:hover {
+            background-color: grey;
+        }
+
+        .output-container {
+            margin-top: 20px;
+        }
+
+        .output-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #f0f0f0;
+            font-size: 0.9em;
+            text-align: left;
+        }
+
+        .footer-link {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #f0f0f0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="converter-container">
+        <h1>Manhattanville Gamezone Card Converter</h1>
+        <textarea id="inputText" placeholder="Enter text here..."></textarea>
+        <button onclick="convert()">Convert</button>
+        
+        <div class="output-container">
+            <label for="finishedText">Converted IDs:</label>
+            <textarea id="finishedText" placeholder="Converted IDs" readonly></textarea>
+        </div>
+    </div>
+
+    <a href="https://www.linkedin.com/in/christian-krause-12a5a41b7/" class="footer-link" target="_blank">Made By Christian Krause</a>
+
+    <script>
+        function convert() {
+            const inputText = document.getElementById("inputText").value;
+            const lines = inputText.split("\n");
+
+            const processedLines = lines.map(line => line.slice(3, 10)).join("\n");
+
+            document.getElementById("finishedText").value = processedLines;
+        }
+    </script>
+
+</body>
+</html>
